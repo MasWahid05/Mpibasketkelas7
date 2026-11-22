@@ -177,6 +177,20 @@ textarea.pilih-blok,input.pilih-blok{width:100%;font:inherit;font-weight:800}
 .papan-skor .baris-kontrol{justify-content:center}.papan-skor .tim .tombol{font-size:24px;padding:8px 16px;min-width:64px}
 .materi figure{margin:12px 0 0}.materi figure img{border:4px solid var(--garis);border-radius:16px}
 .materi ul,.materi ol{max-width:65ch;font-weight:700}
+/* Mode PID / TV besar: semua diperbesar supaya terbaca dari belakang kelas dan mudah disentuh di layar interaktif */
+.alat-layar{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+#tblPid[aria-pressed="true"]{background:var(--kuning);color:#2B1A3F}
+html.pid body{zoom:1.32}
+html.pid .wadah{max-width:1240px}
+html.pid .kecil,html.pid .catat{font-size:16px}
+html.pid .baris{font-size:17px;padding:14px 14px;min-height:54px}
+html.pid .gerak-pilih button,html.pid .pilih button,html.pid .alat-pilih button{min-height:52px}
+html.pid .tp li,html.pid .mat p,html.pid .opsi button{font-size:19px}
+html.pid .opsi button{min-height:64px}
+html.pid .layar-besar{min-height:330px}
+html.pid .panggung{min-height:520px}
+html.pid .toples{min-height:320px}
+@media (max-width:900px){html.pid body{zoom:1}}
 .kartu a:not(.tombol),.mat a:not(.tombol){color:var(--tosca);font-weight:900;text-decoration-thickness:2px;text-underline-offset:3px}
 </style>
 
@@ -189,6 +203,7 @@ textarea.pilih-blok,input.pilih-blok{width:100%;font:inherit;font-weight:800}
       <h1 id="judul"></h1>
       <p id="ringkas"></p>
       <div class="guru" id="guru" hidden><span id="labelGuru">Guru Pengampu</span><b id="namaGuru" style="font-weight:900"></b></div>
+      <div class="alat-layar"><button class="tombol dua kecilT" id="tblPid" type="button" aria-pressed="false" title="Perbesar semua untuk Papan Interaktif Digital atau TV besar">Mode PID / TV</button><button class="tombol dua kecilT" id="tblPenuh" type="button">Layar penuh</button></div>
     </div>
     <canvas class="layar" id="layarKepala" width="600" height="300" aria-hidden="true"></canvas>
   </header>
@@ -228,7 +243,7 @@ textarea.pilih-blok,input.pilih-blok{width:100%;font:inherit;font-weight:800}
 
   <section id="v-aksi-kelas" class="kartu" hidden>
     <span class="pita" style="background:var(--kode)">Aksi Kelas</span>
-    <p style="margin-top:0;max-width:70ch" id="ketAksi">Alat untuk dipakai bersama di kelas atau lapangan. Tampilkan di proyektor atau TV, nyalakan pengeras suara, lalu pilih kegiatan sesuai langkah di modul.</p>
+    <p style="margin-top:0;max-width:70ch" id="ketAksi">Alat untuk dipakai bersama di kelas atau lapangan. Tampilkan di PID (Papan Interaktif Digital), TV, atau proyektor, nyalakan pengeras suara, lalu pilih kegiatan sesuai langkah di modul.</p>
     <div class="alat-pilih" id="alatPilih" role="tablist" aria-label="Pilih alat kelas"></div>
     <div class="aksi" style="margin:14px 0"><label class="saklar"><input type="checkbox" id="suaraOn" checked> Suara aba-aba</label><button class="tombol dua kecilT" type="button" id="layarPenuh">Layar penuh</button></div>
     <div class="panggung" id="panggung"></div>
@@ -385,6 +400,9 @@ const simpan=(k,v)=>{try{localStorage.setItem(KUNCI+k,JSON.stringify(v))}catch(e
 const ambil=(k,d)=>{try{const v=localStorage.getItem(KUNCI+k);return v?JSON.parse(v):d}catch(e){return d}};
 const gerakPelan=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const ada=a=>Array.isArray(a)&&a.length>0;
+// bayangan seret: ukur posisi nyata sekali (aman untuk zoom Mode PID), lalu tempatkan di koordinat layar X,Y
+function pasangHantu(h,lebar){h.style.transform='translate(0px,0px)';document.body.appendChild(h);const a=h.getBoundingClientRect();h.style.transform='translate(100px,100px)';const b=h.getBoundingClientRect();h._k={x0:a.left,y0:a.top,kx:(b.left-a.left)/100||1,ky:(b.top-a.top)/100||1};h.style.width=(lebar/h._k.kx)+'px';}
+function taruhHantu(h,X,Y){const k=h._k;h.style.transform=`translate(${(X-k.x0)/k.kx}px,${(Y-k.y0)/k.ky}px) rotate(-3deg)`;}
 const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const besar1=s=>s?s.charAt(0).toUpperCase()+s.slice(1):s;
 function acak(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
@@ -400,6 +418,13 @@ $('#sekolah').textContent=D.label||[D.sekolah,[D.mapel,D.kelas&&('Kelas '+D.kela
 $('#judul').innerHTML=esc(D.judul||'Web Pembelajaran')+(D.judulSorot?' <span>'+esc(D.judulSorot)+'</span>':'');
 $('#ringkas').innerHTML=D.ringkas||'';
 if(D.guru){$('#guru').hidden=false;$('#namaGuru').textContent=D.guru;if(D.labelGuru)$('#labelGuru').textContent=D.labelGuru;}
+/* ---------- Mode PID / TV besar + layar penuh seluruh halaman ---------- */
+function setPid(on,simpanPilihan){document.documentElement.classList.toggle('pid',on);$('#tblPid').setAttribute('aria-pressed',on);if(simpanPilihan)simpan('pid',on);}
+{const q=new URLSearchParams(location.search),dipilih=ambil('pid',null);
+  setPid(q.has('pid')?q.get('pid')!=='0':(dipilih!==null?dipilih:((window.MODE_PID_AWAL===true||D.modePID===true)&&innerWidth>=1280)),false);}
+$('#tblPid').onclick=()=>setPid(!document.documentElement.classList.contains('pid'),true);
+$('#tblPenuh').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{});}catch(e){}};
+document.addEventListener('fullscreenchange',()=>{$('#tblPenuh').textContent=document.fullscreenElement?'Keluar layar penuh':'Layar penuh';});
 const JENIS_KEPALA=D.kepala||'ekg';if(JENIS_KEPALA==='tidak')$('#layarKepala').hidden=true;
 
 /* ---------- navigasi tab (hash) ---------- */
@@ -719,8 +744,8 @@ function alatRakit(A){const BLOK=A.blok||[],PEM=[['(belum dipilih)',0],...(A.pem
 function seretKe(el,sasaran,aksi){let m=null,h=null,g=false;const di=e=>{const s=$(sasaran).getBoundingClientRect();return e.clientX>s.left&&e.clientX<s.right&&e.clientY>s.top&&e.clientY<s.bottom;};
   el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();aksi();}});
   el.addEventListener('pointerdown',e=>{if(e.button!==0)return;m={x:e.clientX,y:e.clientY};g=false;el.setPointerCapture(e.pointerId);});
-  el.addEventListener('pointermove',e=>{if(!m)return;if(!g&&Math.hypot(e.clientX-m.x,e.clientY-m.y)>8){g=true;const r=el.getBoundingClientRect();h=el.cloneNode(true);h.classList.add('hantu');h.style.width=r.width+'px';document.body.appendChild(h);h._o={x:m.x-r.left,y:m.y-r.top};}
-    if(g){h.style.transform=`translate(${e.clientX-h._o.x}px,${e.clientY-h._o.y}px) rotate(-3deg)`;$(sasaran).classList.toggle('atas',di(e));}});
+  el.addEventListener('pointermove',e=>{if(!m)return;if(!g&&Math.hypot(e.clientX-m.x,e.clientY-m.y)>8){g=true;const r=el.getBoundingClientRect();h=el.cloneNode(true);h.classList.add('hantu');pasangHantu(h,r.width);h._o={x:m.x-r.left,y:m.y-r.top};}
+    if(g){taruhHantu(h,e.clientX-h._o.x,e.clientY-h._o.y);$(sasaran).classList.toggle('atas',di(e));}});
   el.addEventListener('pointerup',e=>{if(!m)return;const gg=g;m=null;if(h){h.remove();h=null;}$(sasaran).classList.remove('atas');if(!gg||di(e))aksi();});
   el.addEventListener('pointercancel',()=>{m=null;if(h){h.remove();h=null;}});}
 
@@ -832,8 +857,8 @@ function pindah(i){if(sudahPeriksa){sudahPeriksa=false;$('#penjelas').innerHTML=
 function pasangSeret(el,i){let mulai=null,hantu=null,geser=false;
   el.addEventListener('pointerdown',e=>{if(e.button!==0)return;mulai={x:e.clientX,y:e.clientY};geser=false;el.setPointerCapture(e.pointerId);});
   el.addEventListener('pointermove',e=>{if(!mulai)return;const dx=e.clientX-mulai.x,dy=e.clientY-mulai.y;
-    if(!geser&&Math.hypot(dx,dy)>8){geser=true;const r=el.getBoundingClientRect();hantu=el.cloneNode(true);hantu.classList.add('hantu');hantu.style.width=r.width+'px';document.body.appendChild(hantu);hantu._o={x:mulai.x-r.left,y:mulai.y-r.top};el.style.opacity='.3';}
-    if(geser){hantu.style.transform=`translate(${e.clientX-hantu._o.x}px,${e.clientY-hantu._o.y}px) rotate(-3deg)`;const tp=$('#toples').getBoundingClientRect();$('#toples').classList.toggle('atas',e.clientX>tp.left&&e.clientX<tp.right&&e.clientY>tp.top&&e.clientY<tp.bottom);}});
+    if(!geser&&Math.hypot(dx,dy)>8){geser=true;const r=el.getBoundingClientRect();hantu=el.cloneNode(true);hantu.classList.add('hantu');pasangHantu(hantu,r.width);hantu._o={x:mulai.x-r.left,y:mulai.y-r.top};el.style.opacity='.3';}
+    if(geser){taruhHantu(hantu,e.clientX-hantu._o.x,e.clientY-hantu._o.y);const tp=$('#toples').getBoundingClientRect();$('#toples').classList.toggle('atas',e.clientX>tp.left&&e.clientX<tp.right&&e.clientY>tp.top&&e.clientY<tp.bottom);}});
   const akhir=e=>{if(!mulai)return;const g=geser;mulai=null;el.style.opacity='';if(hantu){hantu.remove();hantu=null;}$('#toples').classList.remove('atas');
     if(!g){pindah(i);return;}
     const tp=$('#toples').getBoundingClientRect(),diAtas=e.clientX>tp.left&&e.clientX<tp.right&&e.clientY>tp.top&&e.clientY<tp.bottom;
