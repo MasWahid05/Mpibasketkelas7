@@ -374,7 +374,20 @@ window.DATA = {
       setelah: "<p><b>Lay up tangan kanan: kanan–kiri–naik.</b> Tangkap bola pada langkah kanan, langkah kiri, lalu melompat dari kaki kiri dengan lutut kanan naik dan letakkan bola ke kotak di papan.</p>" },
     { judul: "Bermain sambil belajar", pita: "Permainan",
       isi: "<p><b>10 Operan</b> (Pertemuan 1, 4 lawan 4): seperti aturan awal Naismith, bola hanya dipindahkan dengan operan. Tim mendapat 1 poin setiap 10 operan berturut-turut. Setelah 6 menit, guru menambah aturan: boleh menggiring maksimal 3 pantulan. Bandingkan, aturan mana yang lebih memudahkan timmu?</p><p><b>3 lawan 3</b> (Pertemuan 2): setelah lawan mencetak angka, bola dimulai dari garis tengah. Dari 4 anggota kelompok, 3 bermain dan 1 bergantian masuk setiap 2 menit.</p>",
-      rantai: [["Aman", "dilarang merebut bola dari tangan lawan, hanya boleh memotong operan"], ["Adil", "dilarang berlari membawa bola"], ["Kerja sama", "semua anggota menyentuh bola sebelum menembak"]] }
+      rantai: [["Aman", "dilarang merebut bola dari tangan lawan, hanya boleh memotong operan"], ["Adil", "dilarang berlari membawa bola"], ["Kerja sama", "semua anggota menyentuh bola sebelum menembak"]] },
+    { judul: "Menguasai ruang", pita: "Strategi",
+      isi: "<p>Bola basket adalah <b>permainan invasi</b>: tim berebut <b>ruang</b> untuk membawa bola ke ring lawan. Tim menyerang berusaha membuka celah, tim bertahan berusaha menutupnya.</p>",
+      rantai: [["Menciptakan ruang", "menyebar dan menjauhi lawan supaya ada celah"], ["Menggunakan ruang", "menggiring atau mengoper ke celah yang terbuka"], ["Gerak tanpa bola", "lari ke tempat kosong, siap menerima operan"], ["Mempertahankan ruang", "bertahan rapat, menutup jalan ke ring"]],
+      setelah: "<p><b>Dua cara bertahan.</b> <b>Satu lawan satu:</b> setiap pemain menjaga satu lawan dan berdiri di antara lawan dan ring. <b>Pertahanan zona:</b> setiap pemain menjaga satu daerah, bukan satu orang. Coba keduanya di Papan Taktik, lalu bandingkan mana yang lebih sulit ditembus.</p>" },
+    { judul: "Ubah aturan, semua ikut main", pita: "Fair Play",
+      isi: "<p>Alat, aturan, dan cara menghitung skor boleh diubah supaya permainan <b>adil</b> dan <b>semua teman bisa ikut bermain</b>, termasuk yang belum mahir atau berkebutuhan khusus.</p>",
+      rantai: [["Alat", "bola lebih ringan, ring lebih rendah, atau target dinding"], ["Aturan", "giring maksimal 3 pantulan, pemain bergantian tiap 2 menit"], ["Skor", "bonus bila semua anggota menyentuh bola sebelum menembak"], ["Keselamatan", "dilarang merebut bola dari tangan lawan"]],
+      setelah: "<p>Setelah mencoba aturan baru, diskusikan: apakah permainan jadi lebih adil? Siapa yang jadi lebih sering ikut bermain?</p>" },
+    { judul: "Pertolongan pertama: jari tersodok dan pergelangan terkilir", pita: "P3K",
+      isi: "<p>Cedera yang paling sering terjadi di bola basket adalah jari tersodok bola saat menangkap dan pergelangan atau pergelangan kaki terkilir. Segera berhenti dan <b>lapor guru</b>, lalu ingat <b>RICE</b>:</p>",
+      rantai: [["Rest", "berhenti bermain, jangan gerakkan bagian yang sakit"], ["Ice", "kompres es yang dibungkus kain 15–20 menit, jangan langsung ke kulit"], ["Compression", "balut tidak terlalu ketat; longgarkan bila kebas atau kebiruan"], ["Elevation", "angkat bagian yang cedera lebih tinggi dari jantung"]],
+      setelah: "<p><b>Jangan</b> memijat bagian yang cedera atau memberi balsem panas dan air hangat pada 48 jam pertama. <b>Segera ke dokter atau puskesmas</b> bila bentuk jari berubah, jari tidak bisa ditekuk atau diluruskan, sangat nyeri, ujung jari pucat, dingin, atau kebas, atau tidak membaik dalam seminggu.</p>",
+      sumber: "Sumber: RS Ortopedi Prof. Dr. R. Soeharso Surakarta, artikel tentang metode RICE (2023) dan pertolongan pertama kaki terkilir (2025) di keslan.kemkes.go.id; American Academy of Pediatrics, HealthyChildren.org (Common Finger Injuries in Athletes)." }
   ],
 
   judulGerak: "Gerak Dasar Bola Basket",
@@ -419,7 +432,9 @@ window.DATA = {
       selesai: "Kembali ke kelompok untuk 3 lawan 3.", ucapSelesai: "Selesai. Siapkan permainan tiga lawan tiga." },
     { jenis: "kelompok", n: "Bagi 8 Kelompok", k: "4 murid per kelompok", murid: 32, kelompok: 8 },
     { jenis: "skor", n: "Papan Skor 3 lawan 3", k: "Jam pertandingan · Pertemuan 2", menit: 6, poin: [1, 2, 3],
-      tim: [["Tim Oranye", "#FF7A1F"], ["Tim Biru", "#1565C0"]], catatan: "Pemain cadangan masuk bergantian setiap 2 menit. Setelah angka, bola dimulai dari garis tengah." }
+      tim: [["Tim Oranye", "#FF7A1F"], ["Tim Biru", "#1565C0"]], catatan: "Pemain cadangan masuk bergantian setiap 2 menit. Setelah angka, bola dimulai dari garis tengah." },
+    { jenis: "skor", n: "Papan Skor Fair Play", k: "Modifikasi sistem skor", menit: 5, poin: [1, 2, 3],
+      tim: [["Tim Oranye", "#FF7A1F"], ["Tim Biru", "#1565C0"]], catatan: "Contoh skor modifikasi: +2 tembakan masuk, +1 bonus bila semua anggota sudah menyentuh bola sebelum menembak. Kelompok boleh mengusulkan aturan skor sendiri." }
   ],
 
   judulKuis: "Kuis Bola Basket",
@@ -436,7 +451,12 @@ window.DATA = {
     { q: "Pada operan pantul, bola sebaiknya memantul di...", o: ["Dekat kaki pengoper", "Kira-kira dua pertiga jarak ke arah teman", "Tepat di kaki teman", "Di mana saja"], b: 1, e: "Pantulan di dua pertiga jarak membuat bola naik setinggi pinggang penerima." },
     { q: "Huruf E kedua pada BEEF berarti...", o: ["Eyes", "Energy", "Elbow", "Easy"], b: 2, e: "BEEF: Balance, Eyes, Elbow, Follow through." },
     { q: "Aturan awal Naismith melarang pemain...", o: ["Mengoper bola", "Berlari sambil membawa bola", "Menembak ke keranjang", "Bermain di dalam ruangan"], b: 1, e: "Karena itu bola dipindahkan dengan operan, lalu dengan menggiring." },
-    { q: "Akhiran operan dada yang benar adalah...", o: ["Ibu jari ke bawah, telapak menghadap luar", "Tangan ditarik ke dada", "Satu tangan di atas kepala", "Bola dilepas dari bawah"], b: 0, e: "Akhiri dengan ibu jari ke bawah dan telapak menghadap luar." }
+    { q: "Akhiran operan dada yang benar adalah...", o: ["Ibu jari ke bawah, telapak menghadap luar", "Tangan ditarik ke dada", "Satu tangan di atas kepala", "Bola dilepas dari bawah"], b: 0, e: "Akhiri dengan ibu jari ke bawah dan telapak menghadap luar." },
+    { q: "Pertahanan zona artinya...", o: ["Setiap pemain menjaga satu lawan", "Setiap pemain menjaga satu daerah", "Semua pemain berdiri di bawah ring", "Pemain bertahan boleh merebut bola dari tangan"], b: 1, e: "Pada pertahanan zona, setiap pemain menjaga daerahnya, bukan mengikuti satu orang." },
+    { q: "Lari ke tempat kosong supaya siap menerima operan disebut...", o: ["Gerak tanpa bola", "Menggiring", "Pertahanan zona", "Lemparan bebas"], b: 0, e: "Gerak tanpa bola membantu tim menciptakan dan menggunakan ruang." },
+    { q: "Contoh modifikasi aturan supaya semua teman ikut bermain adalah...", o: ["Hanya pemain terbaik yang boleh menembak", "Bonus skor bila semua anggota menyentuh bola sebelum menembak", "Pemain cadangan tidak pernah masuk", "Tim yang kalah keluar lapangan"], b: 1, e: "Bonus skor membuat tim mengoper ke semua anggota, jadi semua ikut bermain." },
+    { q: "Jarimu tersodok bola saat menangkap. Pertolongan pertama yang tepat adalah...", o: ["Dipijat kuat-kuat", "Kompres es yang dibungkus kain dan lapor guru", "Diberi balsem panas", "Terus bermain sampai selesai"], b: 1, e: "Ingat RICE: berhenti, kompres es berbungkus kain 15–20 menit, balut tidak terlalu ketat, angkat lebih tinggi dari jantung." },
+    { q: "Cedera jari harus segera diperiksa ke dokter atau puskesmas bila...", o: ["Bentuk jari berubah atau jari tidak bisa ditekuk", "Rasa sakitnya sudah hilang", "Sudah dikompres sekali", "Jari masih bisa menggiring"], b: 0, e: "Perubahan bentuk, tidak bisa ditekuk atau diluruskan, sangat nyeri, atau pucat dan kebas adalah tanda harus diperiksa." }
   ],
 
   lacak: {
@@ -451,7 +471,9 @@ window.DATA = {
       { n: "Kartu Aturan", lv: "Sedang", kepala: "ATURAN 10 OPERAN", b: [["Bola dipindahkan hanya dengan operan", 0], ["Pemain bertahan boleh merebut bola dari tangan lawan", 1, "Tidak aman dan melanggar aturan permainan.", "Pemain bertahan hanya boleh memotong operan"], ["Tim mendapat 1 poin setiap 10 operan berturut-turut", 0], ["Pemain boleh berlari sambil membawa bola", 1, "Melanggar aturan sejak zaman Naismith.", "Berhenti saat memegang bola, lalu oper"], ["Setelah 6 menit, boleh menggiring maksimal 3 pantulan", 0]] },
       { n: "Kartu BEEF", lv: "Sedang", kepala: "MENEMBAK", b: [["Balance: kaki selebar bahu, lutut ditekuk", 0], ["Eyes: mata melihat bola di tangan", 1, "Sasaran tidak terlihat.", "Eyes: mata menatap ring"], ["Elbow: siku melebar ke samping", 1, "Arah tembakan melenceng.", "Elbow: siku di bawah bola, lurus ke ring"], ["Follow through: lengan lurus, pergelangan dilecutkan", 0]] },
       { n: "Kartu Lay Up", lv: "Sulit", kepala: "LAY UP KANAN", b: [["Giring mendekati ring dari sisi kanan", 0], ["Langkah kiri, lalu kanan", 1, "Urutan langkah terbalik untuk lay up kanan.", "Langkah kanan, lalu kiri"], ["Lompat dengan kaki kiri, lutut kanan naik", 0], ["Lempar bola keras ke ring", 1, "Bola memantul keluar.", "Letakkan bola pelan ke papan pantul"], ["Mendarat dengan dua kaki, lutut ditekuk", 0]] },
-      { n: "Kartu Sejarah", lv: "Sulit", khusus: true, kepala: "LINIMASA", label: "di linimasa", b: [["1891: Naismith menciptakan bola basket di Springfield", 0], ["1932: bola basket masuk Olimpiade", 1, "1932 adalah tahun FIBA berdiri.", "1932: FIBA berdiri"], ["1936: bola basket masuk Olimpiade", 0], ["1892: 13 aturan dasar Naismith terbit", 0], ["1951: PSSI berdiri", 1, "Induk organisasi bola basket adalah PERBASI.", "1951: PERBASI berdiri"], ["2023: Indonesia ikut menjadi tuan rumah Piala Dunia FIBA", 0]] }
+      { n: "Kartu Sejarah", lv: "Sulit", khusus: true, kepala: "LINIMASA", label: "di linimasa", b: [["1891: Naismith menciptakan bola basket di Springfield", 0], ["1932: bola basket masuk Olimpiade", 1, "1932 adalah tahun FIBA berdiri.", "1932: FIBA berdiri"], ["1936: bola basket masuk Olimpiade", 0], ["1892: 13 aturan dasar Naismith terbit", 0], ["1951: PSSI berdiri", 1, "Induk organisasi bola basket adalah PERBASI.", "1951: PERBASI berdiri"], ["2023: Indonesia ikut menjadi tuan rumah Piala Dunia FIBA", 0]] },
+      { n: "Kartu Fair Play", lv: "Sedang", khusus: true, kepala: "MODIFIKASI ATURAN", label: "di aturan permainan", b: [["Bola lebih ringan untuk teman yang belum mahir", 0], ["Hanya pemain paling jago yang boleh menembak", 1, "Tidak adil, teman lain tidak ikut bermain.", "Semua anggota menyentuh bola sebelum menembak"], ["Pemain cadangan masuk bergantian setiap 2 menit", 0], ["Tim yang kalah tidak boleh bermain lagi", 1, "Membuat sebagian murid hanya menonton dan tidak bergerak.", "Semua tim tetap bermain di lapangan mini"], ["Target dinding untuk lapangan tanpa ring", 0]] },
+      { n: "Kartu P3K", lv: "Sulit", khusus: true, kepala: "JARI TERSODOK BOLA", label: "di langkah pertolongan pertama", b: [["Berhenti bermain dan lapor guru", 0], ["Langsung pijat jari yang sakit", 1, "Memijat bisa memperparah bengkak.", "Kompres es yang dibungkus kain 15–20 menit"], ["Tempelkan es langsung ke kulit", 1, "Es langsung ke kulit bisa melukai kulit karena terlalu dingin.", "Bungkus es dengan kain"], ["Angkat tangan lebih tinggi dari jantung", 0], ["Balut sekencang-kencangnya supaya tidak bengkak", 1, "Balutan terlalu ketat menghambat aliran darah.", "Balut tidak terlalu ketat; longgarkan bila kebas atau kebiruan"]] }
     ]
   },
 
@@ -477,7 +499,18 @@ window.DATA = {
         { n: "Buka ruang", A: [[68, 18], [64, 55], [78, 86]], B: [[76, 26], [71, 55], [84, 76]], bola: [61, 55], ket: "Penyerang menyebar jauh satu sama lain supaya ada ruang untuk mengoper dan menggiring." },
         { n: "Oper lalu lari (give and go)", A: [[68, 18], [64, 55], [78, 86]], B: [[76, 26], [71, 55], [84, 76]], bola: [61, 55],
           panah: [[[64, 55], [67, 30], [68, 20]], [[64, 55], [78, 52], [90, 50]]], ket: "A2 mengoper ke A1, lalu langsung lari ke ring untuk menerima operan balik." },
-        { n: "Bertahan satu lawan satu", A: [[68, 18], [64, 55], [78, 86]], B: [[72, 22], [69, 55], [82, 80]], bola: [61, 55], ket: "Setiap pemain bertahan menjaga satu penyerang, berdiri di antara lawan dan ring." }] },
+        { n: "Bertahan satu lawan satu", A: [[68, 18], [64, 55], [78, 86]], B: [[72, 22], [69, 55], [82, 80]], bola: [61, 55], ket: "Setiap pemain bertahan menjaga satu penyerang, berdiri di antara lawan dan ring." },
+        { n: "Gerak tanpa bola", A: [[68, 18], [64, 55], [78, 86]], B: [[76, 26], [71, 55], [84, 76]], bola: [61, 55],
+          panah: [[[78, 86], [85, 72], [89, 62]]], ket: "A3 lari ke ruang kosong dekat ring tanpa membawa bola, supaya siap menerima operan dari A2." },
+        { n: "Pertahanan zona", A: [[68, 18], [64, 55], [78, 86]], B: [[80, 32], [80, 68], [90, 50]], bola: [61, 55], ket: "Pertahanan zona: setiap pemain bertahan menjaga daerahnya (dua di depan, satu dekat ring), bukan mengikuti satu orang. Bandingkan dengan satu lawan satu." }] },
+    { jenis: "pasang", n: "Pasangkan Konsep Ruang", k: "Strategi menyerang & bertahan", judulKiri: "Istilah", judulKanan: "Artinya",
+      pasangan: [["Menciptakan ruang", "Menyebar dan menjauhi lawan supaya ada celah"], ["Menggunakan ruang", "Menggiring atau mengoper ke celah yang terbuka"], ["Gerak tanpa bola", "Lari ke tempat kosong, siap menerima operan"], ["Mempertahankan ruang", "Bertahan rapat, menutup jalan ke ring"], ["Pertahanan zona", "Menjaga satu daerah, bukan satu orang"], ["Satu lawan satu", "Setiap pemain menjaga satu lawan"]] },
+    { jenis: "urut", n: "Pertolongan Pertama Jari Tersodok", k: "Urutkan langkah RICE",
+      langkah: ["Berhenti bermain dan lapor guru", "Kompres es yang dibungkus kain 15–20 menit", "Balut tidak terlalu ketat", "Angkat tangan lebih tinggi dari jantung", "Ke dokter atau puskesmas bila bentuk berubah atau tidak membaik"],
+      penjelas: "RICE: Rest (istirahat), Ice (kompres es), Compression (balut), Elevation (angkat). Jangan dipijat atau diberi balsem panas pada 48 jam pertama." },
+    { jenis: "roda", n: "Roda Modifikasi Aturan", k: "Fair play & inklusif", atas: "Aturan baru untuk dicoba",
+      isi: ["Giring maksimal 3 pantulan", "Bonus +1 bila semua menyentuh bola", "Tembakan ke target dinding", "Pakai bola karet yang lebih ringan", "Operan pantul bernilai +1", "Pemain berganti tiap 2 menit", "Tanpa giring, hanya operan", "Jarak tembakan bebas dipilih"],
+      catatan: "Putar, coba aturannya 3 menit, lalu diskusikan: lebih adil? Siapa yang jadi lebih sering ikut bermain?" },
     { jenis: "rebutan", n: "Kuis Rebutan Tim", k: "Dua tim di depan PID", tim: [["Tim Oranye", "#FF7A1F"], ["Tim Biru", "#1565C0"]], jumlah: 10, detik: 20 },
     { jenis: "roda", n: "Roda Tantangan Basket", k: "Tantangan acak", atas: "Tantangan untukmu",
       isi: ["Giring tangan kiri 10 kali", "Operan dada 5 kali tanpa jatuh", "Tembakan dari 2 meter", "Lay up tanpa bola: kanan–kiri–naik", "Sebutkan 2 fakta sejarah basket", "Giring rendah 15 detik", "Operan pantul 5 kali", "Jelaskan BEEF ke temanmu"] }
@@ -489,7 +522,8 @@ window.DATA = {
     { n: "Menggiring", aspek: ["Ujung jari", "Bola setinggi pinggang", "Kepala tegak", "Ganti tangan lancar"] },
     { n: "Operan dada & pantul", aspek: ["Ibu jari di belakang bola", "Melangkah ke depan", "Akhiran ibu jari ke bawah", "Pantulan ±2/3 jarak"] },
     { n: "Menembak (BEEF)", aspek: ["Balance", "Eyes", "Elbow", "Follow through"] },
-    { n: "Permainan 3 lawan 3", aspek: ["Mencari ruang kosong", "Mengoper ke teman bebas", "Menaati aturan", "Kerja sama"] }
+    { n: "Permainan 3 lawan 3", aspek: ["Mencari ruang kosong", "Mengoper ke teman bebas", "Menaati aturan", "Kerja sama"] },
+    { n: "Modifikasi aturan (kelompok)", aspek: ["Mengusulkan aturan baru", "Aturan membuat semua ikut main", "Menguji aturan dalam permainan", "Menjelaskan alasan"] }
   ]
 };
 
@@ -883,11 +917,11 @@ function alatKelompok(A){const WK=['#FF4F64','#2EC5FF','#19B894','#FFC233','#7A5
   $('#kpSatu').onclick=()=>{clearInterval(acakId);const m=daftar();let n=0;acakId=setInterval(()=>{$('#kpTeks').textContent=m[Math.floor(Math.random()*m.length)];bunyi(500+n*20,.04,.12);if(++n>18){clearInterval(acakId);acakId=null;const p=m[Math.floor(Math.random()*m.length)];$('#kpTeks').textContent=p;$('#kpLayar').style.background=WK[Math.floor(Math.random()*8)];bunyi(880,.3);ucap(p);}},70);};}
 
 // 8. papan skor dua tim + jam pertandingan
-function alatSkor(A){const T=A.tim||[['Tim A','#FF4F64'],['Tim B','#2EC5FF']],PO=A.poin||[1,2,3];const S=ambil('skor',null);let skor=S&&S.length===T.length?S:T.map(()=>0),total=(A.menit||5)*60,sisa=total,jalan=false;
+function alatSkor(A){const T=A.tim||[['Tim A','#FF4F64'],['Tim B','#2EC5FF']],PO=A.poin||[1,2,3];const kunciSkor='skor-'+ALAT.indexOf(A),S=ambil(kunciSkor,null);let skor=S&&S.length===T.length?S:T.map(()=>0),total=(A.menit||5)*60,sisa=total,jalan=false;
   P_.innerHTML=`<div class="papan-skor">${T.map((t,i)=>`<div class="tim" style="background:${warna(t[1])};color:${teksDi(t[1])}"><div class="teks-besar">${esc(t[0])}</div><div class="angka-besar" id="skr${i}">0</div><div class="baris-kontrol">${PO.map(p=>`<button class="tombol dua kecilT" type="button" data-t="${i}" data-n="${p}">+${p}</button>`).join('')}<button class="tombol dua kecilT" type="button" data-t="${i}" data-n="-1" aria-label="Kurangi 1">−1</button></div></div>`).join('')}</div>
   <div class="baris-kontrol" style="justify-content:center"><div class="jam" style="display:grid;place-items:center;background:#22183A;color:#fff;border:5px solid var(--garis);border-radius:22px;padding:10px 24px"><div class="sub-besar">${esc(A.labelJam||'Waktu')}</div><div class="angka-besar" id="skJam" style="font-size:clamp(56px,10vw,110px)">0</div></div></div>
   <div class="baris-kontrol"><button class="tombol" id="jmMulai" type="button">Mulai / Jeda</button><button class="tombol dua" id="jmUlang" type="button">Atur ulang waktu</button><button class="tombol dua" id="skNol" type="button">Skor jadi 0</button><span class="kecil">${A.catatan||''}</span></div>`;
-  const tulis=()=>{skor.forEach((s,i)=>$('#skr'+i).textContent=s);$('#skJam').textContent=fmt(sisa)+(sisa<60?' dtk':'');simpan('skor',skor);};
+  const tulis=()=>{skor.forEach((s,i)=>$('#skr'+i).textContent=s);$('#skJam').textContent=fmt(sisa)+(sisa<60?' dtk':'');simpan(kunciSkor,skor);};
   P_.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{const i=+b.dataset.t,n=+b.dataset.n;skor[i]=Math.max(0,skor[i]+n);bunyi(n>0?880:330,.12);tulis();});
   let akhir=0;$('#jmMulai').onclick=()=>{if(jalan){jalan=false;clearInterval(skorId);jagaLayar(false);return;}if(sisa<=0)sisa=total;jalan=true;jagaLayar(true);akhir=performance.now()+sisa*1000;bunyi(990,.3);
     skorId=setInterval(()=>{const s=Math.max(0,(akhir-performance.now())/1000);if(Math.ceil(s)!==Math.ceil(sisa)&&s<=5&&s>0)bunyi(990,.08,.18);sisa=s;tulis();if(s<=0){clearInterval(skorId);jalan=false;jagaLayar(false);bunyi(300,1.2,.3);ucap(A.ucapAkhir||'Waktu habis');}},200);};
