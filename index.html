@@ -349,7 +349,7 @@ window.DATA = {
   ringkas: "Sejarah dan gerak dasar bola basket: menggiring, mengoper, menangkap, dan menembak. Tonton videonya, pelajari tekniknya, lalu buru kesalahan teknik di kartu latihan.",
   guru: "Syaifudin Wahid, M.Pd",
   kepala: "bola",
-  tema: { utama: "#FF7A1F", kedua: "#1565C0" },
+  tema: { utama: "#1565C0", kedua: "#FF7A1F", aksen: "#2EC5FF", sorot: "#FFC233", latar: "#E6F2FF", lembut: "#EEF5FF" },
 
   tujuan: [
     "Menceritakan <b>sejarah singkat bola basket</b> dan menjelaskan alasan di balik aturan menggiring.",
@@ -379,13 +379,13 @@ window.DATA = {
       isi: "<p>Bola basket adalah <b>permainan invasi</b>: tim berebut <b>ruang</b> untuk membawa bola ke ring lawan. Tim menyerang berusaha membuka celah, tim bertahan berusaha menutupnya.</p>",
       rantai: [["Menciptakan ruang", "menyebar dan menjauhi lawan supaya ada celah"], ["Menggunakan ruang", "menggiring atau mengoper ke celah yang terbuka"], ["Gerak tanpa bola", "lari ke tempat kosong, siap menerima operan"], ["Mempertahankan ruang", "bertahan rapat, menutup jalan ke ring"]],
       setelah: "<p><b>Dua cara bertahan.</b> <b>Satu lawan satu:</b> setiap pemain menjaga satu lawan dan berdiri di antara lawan dan ring. <b>Pertahanan zona:</b> setiap pemain menjaga satu daerah, bukan satu orang. Coba keduanya di Papan Taktik, lalu bandingkan mana yang lebih sulit ditembus.</p>" },
-    { judul: "Ubah aturan, semua ikut main", pita: "Fair Play",
-      isi: "<p>Alat, aturan, dan cara menghitung skor boleh diubah supaya permainan <b>adil</b> dan <b>semua teman bisa ikut bermain</b>, termasuk yang belum mahir atau berkebutuhan khusus.</p>",
-      rantai: [["Alat", "bola lebih ringan, ring lebih rendah, atau target dinding"], ["Aturan", "giring maksimal 3 pantulan, pemain bergantian tiap 2 menit"], ["Skor", "bonus bila semua anggota menyentuh bola sebelum menembak"], ["Keselamatan", "dilarang merebut bola dari tangan lawan"]],
+    { judul: "Mencoba aturan baru dari guru", pita: "Fair Play",
+      isi: "<p>Alat, aturan, dan cara menghitung skor boleh diubah supaya permainan <b>adil</b> dan <b>semua teman bisa ikut bermain</b>. Di kelas 7, guru menyiapkan aturannya. Tugasmu <b>mencoba</b> aturan itu dan <b>merasakan bedanya</b>. Merancang aturan sendiri akan kamu pelajari di kelas 8.</p>",
+      rantai: [["Aturan A", "giring maksimal 3 pantulan"], ["Aturan B", "bonus +1 bila semua anggota menyentuh bola sebelum menembak"], ["Aturan C", "bola karet lebih ringan atau target dinding"], ["Rasakan", "siapa yang jadi lebih sering ikut bermain?"]],
       setelah: "<p>Setelah mencoba aturan baru, diskusikan: apakah permainan jadi lebih adil? Siapa yang jadi lebih sering ikut bermain?</p>" },
-    { judul: "Pertolongan pertama: jari tersodok dan pergelangan terkilir", pita: "P3K",
-      isi: "<p>Cedera yang paling sering terjadi di bola basket adalah jari tersodok bola saat menangkap dan pergelangan atau pergelangan kaki terkilir. Segera berhenti dan <b>lapor guru</b>, lalu ingat <b>RICE</b>:</p>",
-      rantai: [["Rest", "berhenti bermain, jangan gerakkan bagian yang sakit"], ["Ice", "kompres es yang dibungkus kain 15–20 menit, jangan langsung ke kulit"], ["Compression", "balut tidak terlalu ketat; longgarkan bila kebas atau kebiruan"], ["Elevation", "angkat bagian yang cedera lebih tinggi dari jantung"]],
+    { judul: "Mengenal cedera ringan: jari tersodok", pita: "P3K",
+      isi: "<p>Cedera yang paling sering terjadi di bola basket adalah <b>jari tersodok</b> bola saat menangkap. Kenali tandanya dan lakukan langkah awal ini. Cara membalut (RICE lengkap) dipraktikkan di kelas 8.</p>",
+      rantai: [["Kenali", "jari nyeri, bengkak, atau sulit ditekuk setelah terkena bola"], ["Berhenti", "keluar lapangan dan lapor guru"], ["Dinginkan", "kompres es yang dibungkus kain 15–20 menit, jangan langsung ke kulit"], ["Istirahatkan", "angkat tangan lebih tinggi dari jantung, jangan dipakai bermain dulu"]],
       setelah: "<p><b>Jangan</b> memijat bagian yang cedera atau memberi balsem panas dan air hangat pada 48 jam pertama. <b>Segera ke dokter atau puskesmas</b> bila bentuk jari berubah, jari tidak bisa ditekuk atau diluruskan, sangat nyeri, ujung jari pucat, dingin, atau kebas, atau tidak membaik dalam seminggu.</p>",
       sumber: "Sumber: RS Ortopedi Prof. Dr. R. Soeharso Surakarta, artikel tentang metode RICE (2023) dan pertolongan pertama kaki terkilir (2025) di keslan.kemkes.go.id; American Academy of Pediatrics, HealthyChildren.org (Common Finger Injuries in Athletes)." }
   ],
@@ -434,7 +434,7 @@ window.DATA = {
     { jenis: "skor", n: "Papan Skor 3 lawan 3", k: "Jam pertandingan · Pertemuan 2", menit: 6, poin: [1, 2, 3],
       tim: [["Tim Oranye", "#FF7A1F"], ["Tim Biru", "#1565C0"]], catatan: "Pemain cadangan masuk bergantian setiap 2 menit. Setelah angka, bola dimulai dari garis tengah." },
     { jenis: "skor", n: "Papan Skor Fair Play", k: "Modifikasi sistem skor", menit: 5, poin: [1, 2, 3],
-      tim: [["Tim Oranye", "#FF7A1F"], ["Tim Biru", "#1565C0"]], catatan: "Contoh skor modifikasi: +2 tembakan masuk, +1 bonus bila semua anggota sudah menyentuh bola sebelum menembak. Kelompok boleh mengusulkan aturan skor sendiri." }
+      tim: [["Tim Oranye", "#FF7A1F"], ["Tim Biru", "#1565C0"]], catatan: "Contoh skor modifikasi: +2 tembakan masuk, +1 bonus bila semua anggota sudah menyentuh bola sebelum menembak. Guru memilih aturan skor yang dipakai." }
   ],
 
   judulKuis: "Kuis Bola Basket",
@@ -460,7 +460,7 @@ window.DATA = {
   ],
 
   lacak: {
-    tab: "Cari Kesalahan", judul: "Cari Kesalahan Teknik", istilah: "kesalahan", wadah: "Kotak Peluit", ikon: "peluit",
+    tab: "Cari Kesalahan", judul: "Cari Kesalahan Teknik Dasar", istilah: "kesalahan", wadah: "Kotak Peluit", ikon: "peluit",
     kepala: "LANGKAH GERAK", ekor: null,
     petunjuk: "Setiap kartu berisi urutan gerak. Ada langkah yang salah. <b>Seret langkah yang salah ke Kotak Peluit</b>, lalu tekan Periksa. Bisa juga dengan mengetuk langkahnya.",
     acak: { kecuali: "^$" },
@@ -505,10 +505,10 @@ window.DATA = {
         { n: "Pertahanan zona", A: [[68, 18], [64, 55], [78, 86]], B: [[80, 32], [80, 68], [90, 50]], bola: [61, 55], ket: "Pertahanan zona: setiap pemain bertahan menjaga daerahnya (dua di depan, satu dekat ring), bukan mengikuti satu orang. Bandingkan dengan satu lawan satu." }] },
     { jenis: "pasang", n: "Pasangkan Konsep Ruang", k: "Strategi menyerang & bertahan", judulKiri: "Istilah", judulKanan: "Artinya",
       pasangan: [["Menciptakan ruang", "Menyebar dan menjauhi lawan supaya ada celah"], ["Menggunakan ruang", "Menggiring atau mengoper ke celah yang terbuka"], ["Gerak tanpa bola", "Lari ke tempat kosong, siap menerima operan"], ["Mempertahankan ruang", "Bertahan rapat, menutup jalan ke ring"], ["Pertahanan zona", "Menjaga satu daerah, bukan satu orang"], ["Satu lawan satu", "Setiap pemain menjaga satu lawan"]] },
-    { jenis: "urut", n: "Pertolongan Pertama Jari Tersodok", k: "Urutkan langkah RICE",
-      langkah: ["Berhenti bermain dan lapor guru", "Kompres es yang dibungkus kain 15–20 menit", "Balut tidak terlalu ketat", "Angkat tangan lebih tinggi dari jantung", "Ke dokter atau puskesmas bila bentuk berubah atau tidak membaik"],
-      penjelas: "RICE: Rest (istirahat), Ice (kompres es), Compression (balut), Elevation (angkat). Jangan dipijat atau diberi balsem panas pada 48 jam pertama." },
-    { jenis: "roda", n: "Roda Modifikasi Aturan", k: "Fair play & inklusif", atas: "Aturan baru untuk dicoba",
+    { jenis: "urut", n: "Langkah Saat Jari Tersodok", k: "Urutkan langkah awal",
+      langkah: ["Berhenti bermain", "Lapor guru", "Kompres es yang dibungkus kain 15–20 menit", "Istirahatkan dan angkat tangan", "Ke puskesmas bila bentuk jari berubah atau tidak membaik"],
+      penjelas: "Jangan dipijat atau diberi balsem panas pada 48 jam pertama. Cara membalut dipelajari di kelas 8." },
+    { jenis: "roda", n: "Roda Aturan Coba", k: "Aturan siap pakai dari guru", atas: "Aturan dari guru untuk dicoba",
       isi: ["Giring maksimal 3 pantulan", "Bonus +1 bila semua menyentuh bola", "Tembakan ke target dinding", "Pakai bola karet yang lebih ringan", "Operan pantul bernilai +1", "Pemain berganti tiap 2 menit", "Tanpa giring, hanya operan", "Jarak tembakan bebas dipilih"],
       catatan: "Putar, coba aturannya 3 menit, lalu diskusikan: lebih adil? Siapa yang jadi lebih sering ikut bermain?" },
     { jenis: "rebutan", n: "Kuis Rebutan Tim", k: "Dua tim di depan PID", tim: [["Tim Oranye", "#FF7A1F"], ["Tim Biru", "#1565C0"]], jumlah: 10, detik: 20 },
@@ -523,7 +523,7 @@ window.DATA = {
     { n: "Operan dada & pantul", aspek: ["Ibu jari di belakang bola", "Melangkah ke depan", "Akhiran ibu jari ke bawah", "Pantulan ±2/3 jarak"] },
     { n: "Menembak (BEEF)", aspek: ["Balance", "Eyes", "Elbow", "Follow through"] },
     { n: "Permainan 3 lawan 3", aspek: ["Mencari ruang kosong", "Mengoper ke teman bebas", "Menaati aturan", "Kerja sama"] },
-    { n: "Modifikasi aturan (kelompok)", aspek: ["Mengusulkan aturan baru", "Aturan membuat semua ikut main", "Menguji aturan dalam permainan", "Menjelaskan alasan"] }
+    { n: "Mencoba aturan baru (kelompok)", aspek: ["Mau mencoba aturan baru", "Menaati aturan yang disepakati", "Mengajak semua teman ikut main", "Menyebut beda yang dirasakan"] }
   ]
 };
 
@@ -548,7 +548,7 @@ const NAMA_WARNA={koral:'#FF4F64',merah:'#E8323F',tosca:'#19B894',hijau:'#1E9B4C
 const warna=w=>w?(NAMA_WARNA[w]||w):'';
 const terang=w=>{const m=/^#?([0-9a-f]{6})$/i.exec(warna(w)||'');if(!m)return /kuning/.test(w||'');const n=parseInt(m[1],16),r=n>>16,g=n>>8&255,b=n&255;return (r*299+g*587+b*114)/1000>170;};
 const teksDi=w=>terang(w)?'#2B1A3F':'#fff';
-if(D.tema){const r=document.documentElement.style;if(D.tema.utama)r.setProperty('--koral',warna(D.tema.utama));if(D.tema.kedua)r.setProperty('--tosca',warna(D.tema.kedua));if(D.tema.aksen)r.setProperty('--biru',warna(D.tema.aksen));}
+if(D.tema){const r=document.documentElement.style;if(D.tema.utama)r.setProperty('--koral',warna(D.tema.utama));if(D.tema.kedua)r.setProperty('--tosca',warna(D.tema.kedua));if(D.tema.aksen)r.setProperty('--biru',warna(D.tema.aksen));if(D.tema.sorot)r.setProperty('--kuning',warna(D.tema.sorot));if(D.tema.latar||D.tema.lembut){const st=document.createElement('style');st.textContent=':root{'+(D.tema.latar?'--langit:'+warna(D.tema.latar)+';':'')+(D.tema.lembut?'--lembut:'+warna(D.tema.lembut)+';':'')+'}';document.head.append(st);}}
 
 
 /* ---------- LENCANA: prestasi murid, tersimpan di perangkat ini ---------- */
