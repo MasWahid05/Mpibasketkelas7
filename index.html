@@ -666,7 +666,19 @@ const OD1=ub(OD0,{h:[320,114],n:[311,156],hip:[298,254],eD:[352,168],tD:[394,168
 const OP1=ub(OD1,{eD:[350,180],tD:[392,198],eJ:[352,178],tJ:[394,196]});
 const TB0={h:[302,136],n:[298,178],hip:[290,276],eD:[332,160],tD:[332,106],eJ:[312,150],tJ:[320,98],kD:[326,336],fD:[312,398],kJ:[312,338],fJ:[296,398]};
 const TB1={h:[302,106],n:[300,148],hip:[298,248],eD:[318,104],tD:[340,66],eJ:[310,112],tJ:[318,80],kD:[306,322],fD:[308,394],kJ:[296,322],fJ:[292,394]};
-const POSE={berdiri:ST,lariA:RUN_A,lariB:RUN_B,jjTutup:JJ0,jjBuka:JJ1,squat:SQ,tali:TL0,engklek1:EK1,engklek2:EK2,plank0:PL0,plank1:PL1,sentuh:SENTUH,lutut1:LN1,lutut2:LN2,lunge:LG,pahaDepan:PH,giring1:GR_A,giring2:GR_B,dada0:OD0,dada1:OD1,pantul1:OP1,tembak0:TB0,tembak1:TB1};
+// lokomotor: berjalan, meloncat (dua kaki), melompat (satu kaki) yang berpindah tempat
+const WK_A={h:[304,108],n:[302,150],hip:[300,250],eD:[290,202],tD:[282,252],eJ:[312,202],tJ:[324,250],kD:[318,322],fD:[330,398],kJ:[288,324],fJ:[270,396]};
+const WK_B=ub(WK_A,{eD:[312,202],tD:[324,250],eJ:[290,202],tJ:[282,252],kD:[288,324],fD:[270,396],kJ:[318,322],fJ:[330,398]});
+const LC_SIAP={h:[318,150],n:[304,190],hip:[262,272],eD:[268,226],tD:[226,240],eJ:[262,228],tJ:[220,244],kD:[318,330],fD:[300,398],kJ:[312,334],fJ:[294,398]};
+const LC_TERBANG={h:[318,104],n:[310,146],hip:[290,244],eD:[348,124],tD:[386,96],eJ:[342,128],tJ:[380,100],kD:[318,312],fD:[300,384],kJ:[310,316],fJ:[292,388]};
+const LC_DARAT=ub(LC_SIAP,{eD:[330,214],tD:[372,214],eJ:[326,218],tJ:[368,218]});
+const LP_TOLAK={h:[316,112],n:[308,154],hip:[298,254],eD:[282,204],tD:[270,236],eJ:[326,198],tJ:[346,176],kD:[340,292],fD:[332,360],kJ:[282,326],fJ:[262,398]};
+const LP_TERBANG=ub(RUN_A,{kD:[346,300],fD:[408,334],kJ:[258,320],fJ:[196,352],eJ:[336,190],tJ:[372,170],eD:[278,200],tD:[250,214]});
+const LP_DARAT={h:[324,130],n:[314,172],hip:[300,268],eD:[320,220],tD:[352,214],eJ:[296,222],tJ:[318,256],kD:[338,330],fD:[330,398],kJ:[262,318],fJ:[240,372]};
+// maju bertahap: n loncatan per putaran, berpindah hanya saat melayang (u0-u1 dari tiap loncatan sepanjang T)
+const majuLoncat=(t,T,n,u0,u1,jarak)=>{const k=t%(T*n),i=Math.floor(k/T),u=(k%T)/T,p=i+Math.max(0,Math.min(1,(u-u0)/(u1-u0)));return -jarak*n/2+p*jarak;};
+const tinggiLoncat=(t,T,u0,u1,h)=>{const u=(t%T)/T;return u>u0&&u<u1?-h*Math.sin((u-u0)/(u1-u0)*Math.PI):0;};
+const POSE={berdiri:ST,lariA:RUN_A,lariB:RUN_B,jjTutup:JJ0,jjBuka:JJ1,squat:SQ,tali:TL0,engklek1:EK1,engklek2:EK2,plank0:PL0,plank1:PL1,sentuh:SENTUH,lutut1:LN1,lutut2:LN2,lunge:LG,pahaDepan:PH,giring1:GR_A,giring2:GR_B,dada0:OD0,dada1:OD1,pantul1:OP1,tembak0:TB0,tembak1:TB1,jalanA:WK_A,jalanB:WK_B,loncatSiap:LC_SIAP,loncatTerbang:LC_TERBANG,lompatTolak:LP_TOLAK,lompatTerbang:LP_TERBANG,lompatDarat:LP_DARAT};
 const tengah=(a,b)=>[(a[0]+b[0])/2,(a[1]+b[1])/2];
 function bolaOper(p,t,pantul){const L=2.4,k=t%L,diTangan=[tengah(p.tD,p.tJ)[0]+12,tengah(p.tD,p.tJ)[1]+2,1];
   if(k<.95)return diTangan;
@@ -689,6 +701,10 @@ const ANIM={
    bola:(p,t)=>{const k=(t%.7)/.7,atas=262;return[GR_A.tD[0]+8,atas+(383-atas)*Math.sin(Math.PI*k),0];}},
  giringZigzag:{L:3,pose:t=>kf([[0,GR_A],[.18,GR_B],[.45,GR_A]],.7,t),dx:t=>((t%3)/3)*520-260,prop:'cone',
    bola:(p,t)=>{const k=(t%.7)/.7,atas=262;return[GR_A.tD[0]+8,atas+(383-atas)*Math.sin(Math.PI*k),1];}},
+ jalan:{L:4,pose:t=>kf([[0,WK_A],[.5,WK_B]],1,t),dy:t=>-3*Math.abs(Math.sin(t/.5*Math.PI)),dx:t=>((t%4)/4)*460-230},
+ lariMaju:{L:2.5,pose:lari,dy:t=>-8*Math.abs(Math.sin(t/.25*Math.PI)),dx:t=>((t%2.5)/2.5)*460-230},
+ meloncat:{L:3.6,pose:t=>kf([[0,ST],[.3,LC_SIAP],[.42,LC_TERBANG],[.68,LC_TERBANG],[.8,LC_DARAT],[1.0,ST]],1.2,t),dy:t=>tinggiLoncat(t,1.2,.35,.75,60),dx:t=>majuLoncat(t,1.2,3,.35,.75,140)},
+ melompat:{L:2.8,pose:t=>kf([[0,LP_TOLAK],[.22,LP_TERBANG],[.62,LP_TERBANG],[.82,LP_DARAT],[1.2,LP_TOLAK]],1.4,t),dy:t=>tinggiLoncat(t,1.4,.15,.6,72),dx:t=>majuLoncat(t,1.4,2,.15,.6,210)},
  operDada:{L:2.4,pose:t=>kf([[0,OD0],[.7,OD0],[1.0,OD1],[1.5,OD1],[1.9,OD0]],2.4,t),prop:'teman',panduan:'oper',bola:(p,t)=>bolaOper(p,t,false)},
  operPantul:{L:2.4,pose:t=>kf([[0,OD0],[.7,OD0],[1.0,OP1],[1.5,OP1],[1.9,OD0]],2.4,t),prop:'teman',bola:(p,t)=>bolaOper(p,t,true)},
  tembak:{L:2.8,pose:t=>kf([[0,TB0],[.9,TB0],[1.2,TB1],[1.9,TB1],[2.4,TB0]],2.8,t),dy:t=>{const k=t%2.8;return k>1.05&&k<1.6?-18*Math.sin((k-1.05)/.55*Math.PI):0;},prop:'ring',panduan:'tembak',

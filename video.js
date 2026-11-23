@@ -9,6 +9,11 @@
    ===================================================================== */
 window.VIDEO_PEMBELAJARAN = [
   {
+    judul: "Sejarah Permainan Bola Basket",
+    ket: "Video Syaifudin Wahid, M.Pd: perjalanan bola basket dari keranjang persik sampai ring modern.",
+    link: "https://youtu.be/FYi44r9JKRI"
+  },
+  {
     judul: "Sejarah dan Gerak Dasar Bola Basket",
     ket: "Dari keranjang persik di Springfield sampai teknik menggiring, mengoper, dan menembak.",
     link: "https://www.youtube.com/watch?v=_Pstk82D7Wc"
